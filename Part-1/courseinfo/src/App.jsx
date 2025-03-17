@@ -1,4 +1,5 @@
 import Course from "./Course";
+// Course module already imported ^
 
 const App = () => {
   const courses = [
