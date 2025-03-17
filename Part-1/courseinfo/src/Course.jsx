@@ -20,16 +20,17 @@ const Part = ({ part }) => (
   </p>
 );
 
-const sumExercises = (total, part) => {
-  return (total += part.exercises);
-};
-
 const Course = ({ course }) => {
   return (
     <div>
       <Header courseName={course.name} />
       <Content parts={course.parts} />
-      <Total total={course.parts.reduce(sumExercises, 0)} />
+      <Total
+        total={course.parts.reduce(
+          (total, part) => (total += part.exercises),
+          0
+        )}
+      />
     </div>
   );
 };
