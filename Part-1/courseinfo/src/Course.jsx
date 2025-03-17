@@ -1,3 +1,9 @@
+const Total = ({ total }) => (
+  <p>
+    <b>Number of exercises {total}</b>
+  </p>
+);
+
 const Header = ({ courseName }) => <h1>{courseName}</h1>;
 
 const Content = ({ parts }) => (
@@ -14,11 +20,16 @@ const Part = ({ part }) => (
   </p>
 );
 
+const sumExercises = (total, part) => {
+  return (total += part.exercises);
+};
+
 const Course = ({ course }) => {
   return (
     <div>
       <Header courseName={course.name} />
       <Content parts={course.parts} />
+      <Total total={course.parts.reduce(sumExercises, 0)} />
     </div>
   );
 };
